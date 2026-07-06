@@ -24,7 +24,7 @@ Built with [Tauri](https://tauri.app), [React](https://react.dev), and [ProseMir
 
 1. Download the latest `.dmg` from [Releases](../../releases)
 2. Open the DMG and drag **Readable** to your Applications folder
-3. On first launch, macOS will warn about an unidentified developer (see below)
+3. On first launch, macOS will block the app because it's unsigned — see [macOS security warning](#macos-security-warning) below for the one-time fix
 
 ### From source
 
@@ -41,19 +41,20 @@ The built app will be at `src-tauri/target/release/bundle/macos/Readable.app`.
 
 ## macOS security warning
 
-Since Readable is not signed with an Apple Developer certificate, macOS will show a warning the first time you open it:
+Readable is not signed with an Apple Developer certificate, so the first time you open it macOS will refuse with a warning like:
 
-> "Readable can't be opened because it is from an unidentified developer"
+> "Readable" Not Opened — Apple could not verify "Readable" is free of malware
 
 **To bypass this (one time only):**
 
-1. **Right-click** (or Control-click) on Readable in your Applications folder
-2. Click **Open** from the context menu
-3. Click **Open** again in the dialog that appears
+1. Double-click **Readable** in your Applications folder, then click **Done** on the warning
+2. Open **System Settings → Privacy & Security** and scroll down to the **Security** section
+3. Find the message about Readable and click **Open Anyway**
+4. Click **Open Anyway** again to confirm (macOS may ask for your password or Touch ID)
 
 After doing this once, Readable will open normally from then on.
 
-Alternatively: **System Settings → Privacy & Security → scroll down → click "Open Anyway"** next to the Readable message.
+> **On macOS 14 (Sonoma) or older** you can skip the Settings trip: right-click Readable in Applications → **Open** → **Open**. (Apple removed this shortcut for unsigned apps in macOS 15.)
 
 ## Setting Readable as your default Markdown viewer
 
